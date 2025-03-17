@@ -15,7 +15,8 @@ import java.util.concurrent.TimeUnit;
 public class BookingTest {
 
     private WebDriver driver;
-    private HomePage homepage;
+    private HomePage homePage;
+    
     @BeforeTest
     public void setup() {
         homePage = new HomePage(driver);
