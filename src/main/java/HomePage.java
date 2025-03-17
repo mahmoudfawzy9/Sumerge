@@ -168,5 +168,8 @@ public class HomePage {
 // Assert that the text is equal to "Pharaoh Azur Resort"
         Assert.assertEquals(text, "Pharaoh Azur Resort");
     }
-
+    
+    public void quitDriver() {
+         driver.quit();
+    }
 }
