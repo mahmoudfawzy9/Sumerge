@@ -17,6 +17,7 @@ import org.testng.Assert;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class HomePage {
@@ -70,7 +71,7 @@ public class HomePage {
     }
 
     public void open() {
-        System.setProperty("webdriver.chrome.driver", Configuration.getChromeDriverPath());
+//        System.setProperty("webdriver.chrome.driver", Configuration.getChromeDriverPath());
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-popup-blocking");
         driver = new ChromeDriver(options);
@@ -79,16 +80,16 @@ public class HomePage {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    public void dismissNotification(){
-        //dismiss the pop up that appears after login
-        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(50, TimeUnit.SECONDS);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label='Dismiss sign-in info.' and @type='button']"))).click();
-        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-    }
+//    public void dismissNotification(){
+//        //dismiss the pop up that appears after login
+//        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(50));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@aria-label='Dismiss sign-in info.' and @type='button']"))).click();
+//        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+//    }
 
     public void searchForLocation(String location) throws IOException {
 
-        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(100, TimeUnit.SECONDS);
+        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(50));
         String excelFilePath = Configuration.getExcel();
         System.out.println("======"+ excelFilePath);
         String sheetName = "Sheet1";
@@ -111,11 +112,10 @@ public class HomePage {
     }
 
     public void selectDates(String checkInDate, String checkOutDate) {
-        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(50, TimeUnit.SECONDS);
+        Wait<WebDriver> wait = new FluentWait<>(driver).withTimeout(Duration.ofSeconds(50));
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='a83ed08757 c21c56c305 f38b6daa18 d691166b09 f671049264 deab83296e f4552b6561 dc72a8413c f073249358']"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "//span[@tabindex='-1' and @class='cf06f772fa' and @data-date='2023-10-01' and @aria-checked='false' and @role='checkbox' and @aria-label='1 October 2023']"))).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@tabindex='-1' and @class='cf06f772fa' and @data-date='2023-10-14' and @aria-checked='false' and @role='checkbox' and @aria-label='14 October 2023']"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@aria-label='17 March 2025']"))).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "//span[@aria-label='30 March 2025']"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "//button[contains(@class, 'a83ed08757') and contains(., 'Search')]"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText( "See availability"))).click();
 
