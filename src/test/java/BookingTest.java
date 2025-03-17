@@ -35,7 +35,7 @@ public class BookingTest {
 
     @Test(dataProvider = "bookingData")
     public void testBookingFlow(String location, String checkInDate, String checkOutDate) throws IOException {
-        homePage.dismissNotification();
+        //homePage.dismissNotification();
         homePage.searchForLocation(location);
         homePage.selectDates(checkInDate, checkOutDate);
     }
