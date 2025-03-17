@@ -119,10 +119,6 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath( "//button[contains(@class, 'a83ed08757') and contains(., 'Search')]"))).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText( "See availability"))).click();
 
-
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-
-        driver.get("https://www.booking.com/hotel/eg/pharaoh-azur-resort.html?aid=304142&label=gen173nr-1DCAEoggI46AdIM1gEaEOIAQGYATG4ARfIAQzYAQPoAQH4AQKIAgGoAgO4Aqrw2KYGwAIB0gIkNjM5ZWI0MTAtNWQ5OC00NWQwLWFlMGItNTVmNmE5NzQxNTVi2AIE4AIB&sid=f9a413967d8002d9911af79c328147b8&all_sr_blocks=17536301_371001036_0_85_0;checkin=2023-10-01;checkout=2023-10-14;dest_id=-290029;dest_type=city;dist=0;group_adults=2;group_children=0;hapos=1;highlighted_blocks=17536301_371001036_0_85_0;hpos=1;matching_block_id=17536301_371001036_0_85_0;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;sr_pri_blocks=17536301_371001036_0_85_0__93353;srepoch=1691760701;srpvid=8a295f1ca6810119;type=total;ucfs=1&#hotelTmpl");
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 
         // this is the radio button value = 2 which is queen bed value
